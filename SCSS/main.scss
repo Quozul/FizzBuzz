@@ -1,0 +1,25 @@
+$limit: 10;
+$output: '';
+
+@for $i from 1 through $limit {
+  $entry: '';
+
+  @if $i % 3 == 0 {
+    $entry: 'Fizz';
+  }
+
+  @if $i % 5 == 0 {
+    $entry: '#{$entry}Buzz';
+  }
+
+  @if $entry == '' {
+    $entry: $i;
+  }
+
+  $output: '#{$output}#{$entry} ';
+}
+
+:root {
+  --fizzbuzz: #{$output};
+}
+
